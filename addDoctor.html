@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add New Doctor</title>
-<style>
-body {
-  text-align: center;
-}
-form {
-  display: inline-block;
-  text-align: left;
-  border: 1px solid black;
-  padding: 20px;
-  border-radius: 5px;
-}
-form input {
-  padding: 10px;
-  margin: 5px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid grey;
-}
-form label {
-  display: block;
-  font-weight: bold;
-}
-form input[type="submit"] {
-  background-color: blue;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Doctor</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background: url("https://recaresolutions.com/wp-content/uploads/2021/03/medicine-doctor-stethoscope-touching-icon-medical-network-connection-scaled.jpg") center center no-repeat;
+      background-size: cover;
+      background-color: #f7f7f7;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      color: black;
+    }
+
+    form {
+      width: 400px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    form input {
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid grey;
+      width: 100%;
+    }
+
+    form label {
+      display: block;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    form input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    #logo {
+      max-width: 200px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script src="CreateDoctor.js"></script>
 </head>
 <body>
-<h2>Add New Doctor</h2>
-<form method="POST" action="CreateDoctor">
-	<label for="name">Name:</label>
-	<input type="text" id="name" name="name" placeholder="Enter name" required><br>
-	<label for="email">Email:</label>
-	<input type="email" id="email" name="email" placeholder="Enter email" required><br>
-	<label for="phone">Phone:</label>
-	<input type="tel" id="phone" name="phone" placeholder="Enter phone number" required><br>
-	<label for="age">Age:</label>
-	<input type="number" id="age" name="age" placeholder="Enter age" required><br>
-	<label for="sal">Salary:</label>
-	<input type="number" id="sal" name="sal" placeholder="Enter salary" required><br>
-	<label for="spec">Specialist in:</label>
-	<input type="text" id="spec" name="spec" placeholder="Enter specialization" required><br>
-	<input type="submit" value="Add Doctor" title="Click to add new doctor">
-</form>
+  <form method="POST" action="CreateDoctor">
+    <div align="center">
+      <img id="logo" src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Premier Healthcare Management Logo">
+      <h2>Add New Doctor</h2>
+    </div>
+    <input class="form-control" type="text" id="name" name="name" placeholder="NAME" required>
+    <input class="form-control" type="email" id="email" name="email" placeholder="EMAIL" required>
+    <input class="form-control" type="tel" id="phone" name="phone" placeholder="PHONE" required>
+    <input class="form-control" type="number" id="age" name="age" placeholder="AGE" required>
+    <input class="form-control" type="number" id="sal" name="sal" placeholder="SALARY" required>
+    <input class="form-control" type="text" id="spec" name="spec" placeholder="SPECIALIST IN" required>
+    <input class="btn btn-primary" type="submit" value="ADD DOCTOR" title="Click to add new doctor">
+  </form>
 </body>
-<script src="CreateDoctor.js"></script>
 </html>

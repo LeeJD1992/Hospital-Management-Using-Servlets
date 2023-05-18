@@ -1,63 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHOW PATIENTS</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-button {
-  display: block;
-  color: white;
-  background-color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-#add input {
-  padding: 25px 10px;
-  margin: 3px;
-  width: 40%;
-  font-size: 22px;
-}
-</style>
-
-<script>
-function retrievePatients() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("box").innerHTML = this.responseText;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Patients</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background: url("https://i1.wp.com/hopitalweb2.com/wp-content/uploads/2018/11/hopitalweb2_nov2_18_013.jpg?w=1152&ssl=1") center center no-repeat;
+      background-size: cover;
+      background-color: #f7f7f7;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      color: black;
     }
-  };
-  xhttp.open("GET", "RetrievePatients.js", true);
-  xhttp.send();
-}
-</script>
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px; /* Decreased margin-bottom */
+      color: #007bff; /* Set heading text color to dark blue */
+    }
+
+    table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      display: block;
+      color: white;
+      background-color: #007bff; /* Set button color to blue */
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      margin-bottom: 10px; /* Decreased margin-bottom */
+      width: 100%;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #search-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    #search-form input {
+      padding: 10px;
+      margin: 10px;
+      width: 100%;
+      font-size: 14px;
+      background-color: #fff;
+      border: 1px solid grey;
+      border-radius: 5px;
+      text-transform: uppercase;
+    }
+
+    #box {
+      width: 400px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <script src="RetrievePatients.js"></script>
 </head>
 <body>
-<h2 align="center">GET ALL PATIENTS <br><br><button align="center" type="button" onclick="retrievePatients()">CLICK ME</button></h2><br><br>
-<div id="box">
-</div>
+  <div id="box">
+    <div style="text-align: center; margin-bottom: 10px;">
+      <img id="logo" src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Premier Healthcare Management Logo" style="max-width: 200px;">
+    </div>
+    <h2>Search Patients</h2>
+    <div id="search-form">
+      <input class="form-control" type="text" id="name" placeholder="SEARCH BY NAME">
+      <input class="form-control" type="text" id="department" placeholder="SEARCH BY DEPARTMENT">
+      <input class="form-control" type="text" id="mecial id" placeholder="SEARCH BY MEDICAL ID">
+      <button class="btn btn-primary" type="button" onclick="doc()">SEARCH</button>
+    </div>
+    <div id="patients-table"></div>
+  </div>
 </body>
-<script src="RetrievePatients.js"></script>
 </html>

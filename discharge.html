@@ -3,52 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DISCHARGE PATIENT</title>
+<title>Discharge Patient</title>
 <script src="discharge.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style>
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
 body {
-  text-align: center;
+  background: url("https://th.bing.com/th/id/R.2b973a271b6cc784cd31d6f70290c442?rik=ohMqiGZEo%2fV%2fzA&pid=ImgRaw&r=0") center center no-repeat;
+  background-size: cover;
+  background-color: #f7f7f7;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: black;
 }
 
-#discharge * {
-  padding: 18px 10px;
-  margin:3px;
-  width: 40%;
-  font-size: 22px;
+h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-transform: capitalize;
+}
+
+#box {
+  width: 400px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#logo {
+  max-width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px; /* Adjusted margin-bottom */
+}
+
+#discharge input {
+  padding: 10px;
+  margin: 10px 10px 5px; /* Adjusted margin */
+  width: 100%;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+#discharge input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
 }
 </style>
 </head>
+<script src="Discharge.js"></script>
 <body>
-<h2>DISCHARGE PATIENT</h2>
-<form id="discharge" method="POST" action="Discharge">
-  <input type="text" name="pid" placeholder="Patient ID  (pid)"><br>
-  <input type="number" name="days" placeholder="DAYS Admitted (0 if not on bed)"><br>
-  <input type="number" step="0.01" name="daycost" placeholder="Price per day"><br>
-  <span class="tooltip">
-    <input type="text" name="mc" placeholder="medicine1 id,count1;medicine2 id,count2"><br>
-    <span class="tooltiptext">
-      <i>Enter medicine ID then "," then quantity put ";" then next entry</i>
-    </span>
-  </span><br>
-  <input type="submit" value="GET RECEIPT">
-</form>
+<div id="box">
+  <img id="logo" src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Premier Healthcare Management Logo">
+  <h2>Discharge Patient</h2>
+  <form id="discharge" method="POST" action="Discharge">
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="text" name="pid" placeholder="Medical ID (pid)"><br>
+    <input type="number" name="days" placeholder="Days Admitted (0 if not on bed)"><br>
+    <input type="submit" value="Get Receipt">
+  </form>
+</div>
 </body>
 </html>

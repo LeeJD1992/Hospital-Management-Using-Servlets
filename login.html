@@ -1,32 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOGIN</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<style>
-input{
-	padding: 12px 10px;
-	margin:10px;
-	width: 40%;
-	font-size: 22px;
-}
-#form{
-	width:40%;
-	margin:0 auto;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background: url("https://www.wallpapertip.com/wmimgs/11-119918_background-for-hospital-website.png") center center no-repeat;
+      background-size: cover;
+      background-color: #f7f7f7;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    #logo {
+      max-width: 150px; /* Updated maximum width to make the logo slightly bigger */
+      margin-bottom: 5px; /* Reduced margin bottom to reduce the gap */
+    }
+
+    #form {
+      width: 500px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: black; /* Updated text color to black */
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 8px;
+      width: 100%;
+      font-size: 14px;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button.btn-primary {
+      background-color: #007bff; /* Set login button background color to blue */
+      color: white; /* Set login button text color to white */
+      border: none;
+      border-radius: 5px;
+    }
+
+    button.btn-primary:hover {
+      background-color: #0056b3; /* Updated hover background color to darker blue */
+    }
+  </style>
+  <script src="login.js"></script>
 </head>
 <body>
-<br><br>
-<h1 align="center">Assistant Login</h1>
-<br><br>
-<form class="form-group" id="form" action="/Login" method="POST">
-<input class="form-control" type="text" name="email" placeholder="EMAIL"><br>
-<input class="form-control" type="password" name="pwd" placeholder="PASSWORD"><br>
-<input class="form-control" type="submit" value="LOGIN">
-</form>
-<script src="login.js"></script>
+  <div align="center" id="form">
+    <img id="logo" src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Premier Healthcare Management Logo">
+    <h1>Assistant Login</h1> <!-- Updated inline style for color -->
+    <form class="form-group" action="/login" method="POST">
+      <input class="form-control" type="text" name="email" placeholder="EMAIL"><br>
+      <input class="form-control" type="password" name="pwd" placeholder="PASSWORD"><br>
+      <button class="form-control btn btn-primary" type="submit">LOGIN</button>
+    </form>
+  </div>
 </body>
 </html>

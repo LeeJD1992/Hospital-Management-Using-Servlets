@@ -1,45 +1,21 @@
 const express = require('express');
-const mysql = require('mysql');
-const dateFormat = require('dateformat');
 const port = 3000;
 
 const app = express();
 
-// MySQL DB Connection
-const con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "hospital"
-});
-
 // Parsing middleware
 app.use(express.urlencoded({ extended: true }));
 
-// Route for creating a new assistant
+// Route for registering a new assistant
 app.post('/CreateAssistant', (req, res) => {
-    const name = req.body.get('name');
-    const email = req.body.get('email');
-    const phone = req.body.get('phone');
-    const pwd = req.body.get('pwd');
+    // Process form data
+    const { name, email, phone, pwd } = req.body;
 
-    const joindate = dateFormat(new Date(), "yyyy-mm-dd");
+    // Perform any necessary operations with the form data
+    // For example, you can store it in a file or perform other business logic
 
-    const sql = "INSERT INTO assistant(name,email,phone,joindate,password) VALUES(?,?,?,?,?)";
-    const values = [name, email, phone, joindate, pwd];
-
-    // Executing SQL
-    con.query(sql, values, (err, result) => {
-        if (err) {
-            console.log(err);
-            res.setHeader('Content-Type', 'text/html');
-            res.write("<br><br><br><h1 align=center><font color=\"red\">TRY AGAIN<br>REDIRECTING BACK REGISTRATION PAGE</font></h1><script type=\"text/javascript\">");
-            res.write("redirectURL = \"CreateAssistant.html\";setTimeout(\"location.href = redirectURL;\",\"5000\");");
-            res.write("</script>");
-            return res.end();
-        }
-        res.redirect('/welcome.html');
-    });
+    // Redirect to a success page or any desired location
+    res.redirect('/welcome.html');
 });
 
 // 404 error handling

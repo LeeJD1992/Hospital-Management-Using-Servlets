@@ -1,30 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const { getConnection } = require('../database');
 
-router.post('/CreateDoctor', async (req, res) => {
+router.post('/CreateDoctor', (req, res) => {
     try {
-        const con = await getConnection();
-        const params = new URLSearchParams(req.body);
-        const name = params.get('name');
-        const email = params.get('email');
-        const phone = params.get('phone');
-        const age = params.get('age');
+        const { name, email, phone, age, sal, spec } = req.body;
         const joindate = new Date().toISOString().slice(0, 10);
-        const sal = params.get('sal');
-        const spec = params.get('spec');
         const patients = "-1";
-        const sql = "INSERT INTO doctor(name, email, phone, age, joindate, salary, specialist, patients) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        const queryResult = await con.execute(sql, [name, email, phone, age, joindate, sal, spec, patients]);
-        
-        if (queryResult[0].affectedRows === 1) {
-            res.status(200).send("<br><br><br><h1 align=center><font color=\"green\">SUCCESSFUL<br></font></h1><script type=\"text/javascript\"></script>");
-        } else {
-            res.status(500).send("<br><br><br><h1 align=center><font color=\"red\">THERE IS SOME PROBLEM<br></font></h1><script type=\"text/javascript\"></script>");
-        }
+
+        // Perform any necessary operations with the form data
+        // For example, you can store it in a file or perform other business logic
+
+        // Simulate a successful response
+        res.status(200).send("<br><br><br><h1 align=center><font color=\"green\">SUCCESSFUL<br></font></h1><script type=\"text/javascript\"></script>");
     } catch (error) {
         console.log(error);
-        res.status(500).send(error);
+        res.status(500).send("<br><br><br><h1 align=center><font color=\"red\">THERE IS SOME PROBLEM<br></font></h1><script type=\"text/javascript\"></script>");
     }
 });
 

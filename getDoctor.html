@@ -1,42 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHOW DOCTORS</title>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-button {
-  display: block;
-  color: white;
-  background-color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-#add input{
-  padding: 25px 10px;
-  margin:3px;
-  width: 40%;
-  font-size: 22px;
-}
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-<script src="RetrieveDoctor.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Doctors</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background: url("https://recaresolutions.com/wp-content/uploads/2021/03/medicine-doctor-stethoscope-touching-icon-medical-network-connection-scaled.jpg") center center no-repeat;
+      background-size: cover;
+      background-color: #f7f7f7;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px; /* Decreased margin-bottom */
+      color: #007bff; /* Set heading text color to dark blue */
+    }
+
+    table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      display: block;
+      color: white;
+      background-color: #007bff; /* Set button color to blue */
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      margin-bottom: 10px; /* Decreased margin-bottom */
+      width: 100%;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #search-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    #search-form input {
+      padding: 10px;
+      margin: 10px;
+      width: 100%;
+      font-size: 14px;
+      background-color: #fff;
+      border: 1px solid grey;
+      border-radius: 5px;
+      text-transform: uppercase;
+    }
+
+    #box {
+      width: 400px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <script src="RetrieveDoctor.js"></script>
 </head>
 <body>
-<h2 align=center>GET ALL DOCTORS <br><br><button align=center type="button" onclick="doc()">CLICK ME</button></h2><br><br>
-<div id="box"></div>
+  <div id="box">
+    <div style="text-align: center; margin-bottom: 10px;">
+      <img id="logo" src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Premier Healthcare Management Logo" style="max-width: 200px;">
+    </div>
+    <h2>Search Doctors</h2>
+    <div id="search-form">
+      <input class="form-control" type="text" id="name" placeholder="SEARCH BY NAME">
+      <input class="form-control" type="text" id="department" placeholder="SEARCH BY DEPARTMENT">
+      <input class="form-control" type="text" id="speciality" placeholder="SEARCH BY SPECIALITY">
+      <button class="btn btn-primary" type="button" onclick="doc()">SEARCH</button>
+    </div>
+    <div id="doctors-table"></div>
+  </div>
 </body>
 </html>

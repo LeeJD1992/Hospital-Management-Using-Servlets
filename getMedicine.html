@@ -1,55 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHOW ALL MEDICINES</title>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-button {
-  display: block;
-  color: white;
-  background-color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-#add input{
-  padding: 25px 10px;
-  margin:3px;
-  width: 40%;
-  font-size: 22px;
-}
-td, th {
-border: 1px solid #dddddd;
-text-align: left;
-padding: 8px;
-}
-tr:nth-child(even) {
-background-color: #dddddd;
-}
-</style>
-
-<script src="RetrieveMedicine.js"></script>
-<script>
-function retrieveMedicine() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("box").innerHTML = this.responseText;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Medicines</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background: url("https://th.bing.com/th/id/R.47a54046a8a0bf77b047d4189313297b?rik=nS6lOk06Bx9NEA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f8%2f9%2f2%2f1520340-amazing-medical-wallpaper-backgrounds-1920x1200.jpg&ehk=YlJxKN9%2fiU8UGAXA1itG5a4Nd%2fOJedKuXi7BNNMeXMg%3d&risl=&pid=ImgRaw&r=0") no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      color: black;
     }
-  };
-  xhttp.open("GET", "RetrieveMedicine.js", true);
-  xhttp.send();
-}
-</script>
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    h2 {
+      text-align: center;
+      color: blue;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .search-boxes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      width: 350px;
+      margin-bottom: 10px;
+    }
+
+    #logo {
+      max-width: 200px;
+      margin-bottom: 10px;
+    }
+
+    .search-button {
+      background-color: #007bff; /* same blue color as in register assistant */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      text-transform: uppercase; /* capitalize the text */
+    }
+  </style>
+  <script src="RetrieveMedicine.js"></script>
 </head>
 <body>
-<h2 align="center">SHOW ALL MEDICINES IN STORE <br><br><button align="center" type="button" onclick="retrieveMedicine()">CLICK ME</button></h2><br><br>
-<div id="box"></div>
+  <div class="container">
+    <div align="center">
+      <img id="logo" src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Premier Healthcare Management Logo">
+      <h2>Search Medicines</h2>
+    </div>
+    <div class="search-boxes">
+      <div class="search-box">
+        <input class="form-control" type="text" id="name" name="name" placeholder="SEARCH BY NAME">
+      </div>
+      <div class="search-box">
+        <input class="form-control" type="text" id="symptoms" name="symptoms" placeholder="SEARCH BY SYMPTOMS">
+      </div>
+      <div class="search-box">
+        <input class="form-control" type="text" id="illness" name="illness" placeholder="SEARCH BY ILLNESS">
+      </div>
+    </div>
+    <div align="center">
+      <button class="search-button" onclick="searchMedicine()">SEARCH</button>
+    </div>
+    <table id="medicine-table"></table>
+  </div>
 </body>
 </html>

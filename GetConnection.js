@@ -1,17 +1,30 @@
-const mysql = require('mysql');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-let connection;
+// Set CORS headers to allow cross-domain requests from anywhere
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  next();
+});
 
-function getConnection() {
-  if (!connection) {
-    connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: 'root',
-      database: 'hospital'
-    });
-  }
-  return connection;
-}
+app.options('*', (req, res) => {
+  res.sendStatus(200);
+});
 
-module.exports = { getConnection };
+app.post('/', (req, res) => {
+  // Handle the POST request
+  const { name, price, count } = req.body;
+  
+  // Do something with the data (e.g., log it)
+  console.log('Received data:', { name, price, count });
+  
+  // Send a response
+  res.status(200).send('SUCCESSFUL');
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});

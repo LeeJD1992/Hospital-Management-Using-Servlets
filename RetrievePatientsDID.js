@@ -38,17 +38,17 @@ app.get('/RetrievePatientsDID', async (req, res) => {
       <h2>List of all the Patients working under: ${name}</h2>
       <table>
         <tr>
-          <th>${rms.getColumnName(1)}</th>
-          <th>${rms.getColumnName(2)}</th>
-          <th>${rms.getColumnName(3)}</th>
-          <th>${rms.getColumnName(4)}</th>
-          <th>${rms.getColumnName(5)}</th>
-          <th>${rms.getColumnName(6)}</th>
-          <th>${rms.getColumnName(7)}</th>
-          <th>${rms.getColumnName(8)}</th>
-          <th>${rms.getColumnName(9)}</th>
-          <th>${rms.getColumnName(10)}</th>
-          <th>${rms.getColumnName(11)}</th>
+          <th>${rms[0].name}</th>
+          <th>${rms[1].name}</th>
+          <th>${rms[2].name}</th>
+          <th>${rms[3].name}</th>
+          <th>${rms[4].name}</th>
+          <th>${rms[5].name}</th>
+          <th>${rms[6].name}</th>
+          <th>${rms[7].name}</th>
+          <th>${rms[8].name}</th>
+          <th>${rms[9].name}</th>
+          <th>${rms[10].name}</th>
         </tr>
     `);
 
@@ -57,6 +57,7 @@ app.get('/RetrievePatientsDID', async (req, res) => {
       const patientRow = patientResult[0];
       res.write(`
         <tr>
+          <td>${patientRow[0]}</td>
           <td>${patientRow[1]}</td>
           <td>${patientRow[2]}</td>
           <td>${patientRow[3]}</td>
@@ -67,7 +68,6 @@ app.get('/RetrievePatientsDID', async (req, res) => {
           <td>${patientRow[8]}</td>
           <td>${patientRow[9]}</td>
           <td>${patientRow[10]}</td>
-          <td>${patientRow[11]}</td>
         </tr>
       `);
     }

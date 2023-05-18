@@ -3,69 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assistant Panel</title>
+  <title>Intermountain Healthcare</title>
   <style>
-    iframe {
-      height: 900px;
-      resize: both;
+    body {
+      background: url("https://www.missouripartnership.com/wp-content/uploads/2018/01/iStock-695349930.jpg") no-repeat fixed;
+      background-size: cover;
+      background-color: rgba(247, 247, 247, 0.9);
+      margin: 0;
+      padding: 0;
     }
 
     #panel {
-      list-style-type: none;
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color: #333;
+      text-align: center;
+      background-color: transparent;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
     }
 
-    #panel li button {
-      float: left;
+    #panel ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    #panel li {
+      margin: 5px;
     }
 
     #panel li button {
       display: block;
       color: white;
-      background-color: black;
+      background-color: rgba(0, 86, 179, 0.6);
       text-align: center;
-      padding: 14px 16px;
+      padding: 10px 12px;
       text-decoration: none;
+      border: none;
+      border-radius: 5px;
     }
 
     #panel li button:hover:not(.active) {
-      background-color: lightblue;
-      color: #111;
+      background-color: rgba(0, 86, 179, 0.8);
     }
 
     .active {
       background-color: #4CAF50;
     }
 
-    .prof {
-      float: right;
+    #logo-container {
+      text-align: center;
+      padding: 20px;
+      margin-top: 80px; /* Adjusted margin-top value */
+    }
+
+    #logo {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      width: -webkit-fit-content; /* Support for Chrome, Safari */
+      width: -moz-fit-content; /* Support for Firefox 3+, Firefox for Android 4+ */
+      width: fit-content; /* Default width value */
+      margin: 0 auto;
+    }
+
+    #logo img {
+      max-width: 220px; /* Adjusted max-width value */
     }
   </style>
+  <script src="welcome.js"></script>
 </head>
 <body>
-  <div align="center" id="title">
-    <h1>HOSPITAL</h1>
+  <div align="center" id="panel">
+    <ul>
+      <li><button data-value="addDoctor.html">ADD DOCTOR</button></li>
+      <li><button data-value="addPatient.html">ADD PATIENT</button></li>
+      <li><button data-value="addMedicine.html">ADD MEDICINE</button></li>
+      <li><button data-value="getDoctor.html">VIEW DOCTORS</button></li>
+      <li><button data-value="getMedicine.html">VIEW MEDICINE</button></li>
+      <li><button data-value="getPatients.html">VIEW PATIENTS</button></li>
+      <li><button data-value="discharge.html">DISCHARGE</button></li>
+      <li><button data-value="index.html">LOG OUT</button></li>
+    </ul>
   </div>
-  <ul id="panel">
-    <li><button data-value="addDoctor.html">ADD DOCTOR</button></li>
-    <li><button data-value="addPatient.html">ADD PATIENT</button></li>
-    <li><button data-value="addMedicine.html">ADD MEDICINE</button></li>
-    <li><button data-value="getDoctor.html">VIEW DOCTORS</button></li>
-    <li><button data-value="getPatients.html">VIEW PATIENTS</button></li>
-    <li><button data-value="getMedicine.html">MEDICINE STORE</button></li>
-    <li><button data-value="discharge.html">DISCHARGE</button></li>
-    <li class="prof 1"><button>ABOUT US</button></li>
-    <li class="prof 2">
-      <form method="post" action="/logout.html">
-        <button type="submit">LOGOUT</button>
-      </form>
-    </li>
-  </ul>
-  <br>
-  <div id="frame"></div>
-  <script src="index.js"></script>
+  <div align="center" id="logo-container">
+    <div id="logo">
+      <img src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Premier Healthcare Management Logo">
+    </div>
+  </div>
 </body>
 </html>

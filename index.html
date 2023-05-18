@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOSPITAL MANAGEMENT INDEX</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<style>
-#assistant{
-	font-size:30px;
-	margin-top:8%;
-
-}
-.img{
-width:100%;
-position:absolute;
-}
-</style>
-<script>
-
-function fun(link){
-	window.location = link;	
-}
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOSPITAL MANAGEMENT INDEX</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background: url("https://www.wallpapertip.com/wmimgs/11-119918_background-for-hospital-website.png") center center no-repeat;
+      background-size: cover;
+      background-color: #f7f7f7;
+    }
+    #assistant-container {
+      max-width: 500px; /* Set maximum width for the container */
+      margin: 10% auto; /* Center the container */
+      padding: 30px 20px; /* Adjusted padding */
+      background-color: rgba(255, 255, 255, 0.7); /* Updated transparency value to 0.7 (70%) */
+      border-radius: 10px;
+    }
+    .logo {
+      max-width: 250px; /* Updated maximum width to make the logo slightly bigger */
+      margin: 0 auto 20px; /* Adjusted margin for less spacing */
+      display: block;
+    }
+    .login-buttons {
+      margin-top: 30px;
+    }
+    .login-buttons button {
+      width: 150px;
+      margin-bottom: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+    .login-buttons button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-<div align=center id="assistant">
-<button class="btn btn-success" type="button" onclick=" fun('login.html')">LOGIN</button><BR><BR>
-<button class="btn btn-success" type="button" onclick=" fun('CreateAssistant.html')">NEW ACCOUNT</button><BR><BR>
-</div>
+  <div id="assistant-container">
+    <div align="center" id="assistant">
+      <img class="logo" src="https://www.passageways.com/wp-content/uploads/2018/11/Intermountain_Healthcare_2005_logo.svg-1024x621.png" alt="Hospital Logo">
+      <div class="login-buttons">
+        <button class="btn btn-success btn-sm" type="button" onclick="window.location.href = 'login.html'">LOGIN</button><br>
+        <button class="btn btn-success btn-sm" type="button" onclick="window.location.href = 'CreateAssistant.html'">NEW ACCOUNT</button>
+      </div>
+    </div>
+  </div>
 </body>
+<script>src= "index.js"</script>
 </html>
