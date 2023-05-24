@@ -1,2 +1,2 @@
-# Hospital-Management-Using-Servlets
-Web application for Hospital management developed on JAVA Servlets, Tomcat server abd MySQL.
+# Hospital-Management
+Updated site for CS. Using JavaScript, Express for NodeJS app
